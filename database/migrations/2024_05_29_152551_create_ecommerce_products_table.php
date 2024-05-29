@@ -15,12 +15,12 @@ return new class extends Migration
     {
         Schema::create('ecommerce_products', function (Blueprint $table) {
             $table->id();
-            // $table->foreignId('ecommerce_user_id')->constrained('ecommerce_users');
-            // $table->foreignId('ecommerce_order_id')->constrained('ecommerce_orders');
-            $table->unsignedBigInteger('ecommerce_user_id');
+            $table->foreignId('ecommerce_user_id')->constrained();
+            $table->foreignId('ecommerce_order_id')->constrained();
+/*             $table->unsignedBigInteger('ecommerce_user_id');
             $table->unsignedBigInteger('ecommerce_order_id');
             $table->foreign('ecommerce_user_id')->references('id')->on('ecommerce_users');
-            $table->foreign('ecommerce_order_id')->references('id')->on('ecommerce_orders');
+            $table->foreign('ecommerce_order_id')->references('id')->on('ecommerce_orders'); */
             $table->string('title', 100);
             $table->text('description')->nullable();
             $table->decimal('price', 8, 2);
