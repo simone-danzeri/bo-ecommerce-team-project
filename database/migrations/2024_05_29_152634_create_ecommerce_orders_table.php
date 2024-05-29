@@ -16,10 +16,10 @@ return new class extends Migration
         Schema::create('ecommerce_orders', function (Blueprint $table) {
             $table->id();
             $table->string('name_client', 50);
-            $table->decimal('price_delivery', 8,2);
-            $table->interger('number_order', 25);
+            $table->decimal('price_delivery', 8, 2);
+            $table->tinyint('number_order');
             $table->string('payment_type', 25);
-            $table->tinyint('payment_status');
+            $table->boolean('payment_status')->default(false);
             $table->timestamps();
         });
     }
