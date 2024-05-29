@@ -15,8 +15,10 @@ return new class extends Migration
     {
         Schema::create('ecommerce_products', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('ecommerce_user_id')->constrained('ecommerce_users');
-            $table->foreignId('ecommerce_order_id')->constrained('ecommerce_orders');
+            // $table->foreignId('ecommerce_user_id')->constrained('ecommerce_users');
+            // $table->foreignId('ecommerce_order_id')->constrained('ecommerce_orders');
+            $table->foreign('ecommerce_user_id')->references('id')->on('ecommerce_users');
+            $table->foreign('ecommerce_order_id')->references('id')->on('ecommerce_orders');
             $table->string('title', 100);
             $table->text('description')->nullable();
             $table->decimal('price', 8, 2);
