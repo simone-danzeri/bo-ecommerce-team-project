@@ -15,8 +15,8 @@ return new class extends Migration
     {
         Schema::create('products', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('ecommerce_user_id')->constrained('ecommerce_users');
-            $table->foreignId('ecommerce_order_id')->constrained('ecommerce_orders');
+            $table->foreignId('employee_id')->constrained('employees');
+            $table->foreignId('order_id')->constrained('orders');
             $table->string('title', 100);
             $table->text('description')->nullable();
             $table->decimal('price', 8, 2);
